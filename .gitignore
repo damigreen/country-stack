@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/src/components/Find-1.js
+/src/components/Find-broken.js
+/src/components/Find-W.js
