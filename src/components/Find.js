@@ -75,7 +75,6 @@ const ShowMatchDetails = ({ country }) => {
             </Segment>
         );
     };
-    WeatherInfo()
 
     return (
         <Segment>
