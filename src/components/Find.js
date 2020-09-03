@@ -60,9 +60,9 @@ const ShowMatchDetails = ({ country }) => {
             fetchData();
         }, [])
         
-
+        
         // return (
-        //     <Segment>
+            //     <Segment>
         //         <div>
         //             <h2>Weather in {country.capital}</h2>
         //             <strong>temperature: </strong>{temp} Kelvin<br />
@@ -76,6 +76,7 @@ const ShowMatchDetails = ({ country }) => {
         //     </Segment>
         // );
     };
+    WeatherInfo()
 
     return (
         <Segment>
@@ -95,7 +96,7 @@ const ShowMatchDetails = ({ country }) => {
                             alt={`${country.demonym}, Match Flag!!!`}
                             height="120px"
                             width="150px" />
-                        {WeatherInfo()}
+                        {/* {WeatherInfo()} */}
                     </div>
 
                 </Grid.Column>
