@@ -49,11 +49,11 @@ const ShowMatchDetails = ({ country }) => {
         useEffect(() => {
             const fetchData = async () => {
                 const response = await axios
-                    .get(`http://api.openweathermap.org/data/2.5/weather?q=${country.capital}&APPID=57931c248a6c40409a3da993a10b5c0c`)
+                    .get(`https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&APPID=57931c248a6c40409a3da993a10b5c0c`)
                         const weatherData = response.data;
                         console.log(weatherData)
                         setTemp(weatherData.main.temp);
-                        setIcon(`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`);
+                        setIcon(`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`);
                         setWind(`${weatherData.wind.speed.toString()}  m/s  ${weatherData.wind.deg.toString()}  degrees`);
             }
             fetchData();
