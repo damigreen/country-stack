@@ -36,7 +36,6 @@ const SearchBox = ({ countryName, setCountryName }) => {
 // this is used to render the search result for the matched countries from the weather API
 //
 const ShowMatchDetails = ({ country }) => {
-    console.log(country);
 
     const [temp, setTemp] = useState(0);
     const [icon, setIcon] = useState('');
@@ -47,12 +46,13 @@ const ShowMatchDetails = ({ country }) => {
 
     // gets the weather information fo a particularmatch
     // makes a request to the openweather API for a particular city weather Information
-    const WeatherInfo = () => {
+    const weatherInfo = () => {
         useEffect(() => {
             const fetchData = async () => {
                 const response = await axios
                     .get(`http://api.openweathermap.org/data/2.5/weather?q=${country.capital}&APPID=57931c248a6c40409a3da993a10b5c0c`)
                         const weatherData = response.data;
+                        console.log(weatherData)
                         setTemp(weatherData.main.temp);
                         setIcon(`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`);
                         setWind(`${weatherData.wind.speed.toString()}  m/s  ${weatherData.wind.deg.toString()}  degrees`);
@@ -76,7 +76,7 @@ const ShowMatchDetails = ({ country }) => {
         //     </Segment>
         // );
     };
-    WeatherInfo()
+    weatherInfo()
 
     return (
         <Segment>
@@ -96,7 +96,6 @@ const ShowMatchDetails = ({ country }) => {
                             alt={`${country.demonym}, Match Flag!!!`}
                             height="120px"
                             width="150px" />
-                        {/* {WeatherInfo()} */}
                     </div>
 
                 </Grid.Column>
