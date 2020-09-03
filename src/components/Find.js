@@ -34,7 +34,6 @@ const SearchBox = ({ countryName, setCountryName }) => {
 };
 
 // this is used to render the search result for the matched countries from the weather API
-//
 const ShowMatchDetails = ({ country }) => {
 
     const [temp, setTemp] = useState(0);
@@ -46,7 +45,7 @@ const ShowMatchDetails = ({ country }) => {
 
     // gets the weather information fo a particularmatch
     // makes a request to the openweather API for a particular city weather Information
-    const weatherInfo = () => {
+    const WeatherInfo = () => {
         useEffect(() => {
             const fetchData = async () => {
                 const response = await axios
@@ -61,22 +60,22 @@ const ShowMatchDetails = ({ country }) => {
         }, [])
         
         
-        // return (
-            //     <Segment>
-        //         <div>
-        //             <h2>Weather in {country.capital}</h2>
-        //             <strong>temperature: </strong>{temp} Kelvin<br />
-        //             <img
-        //                 src={icon}
-        //                 alt={`weather icon for ${country.capital}`}
-        //                 height="100px"
-        //                 width="120px" /><br />
-        //             <strong>Wind: </strong>{wind}
-        //         </div>
-        //     </Segment>
-        // );
+        return (
+                <Segment>
+                <div>
+                    <h2>Weather in {country.capital}</h2>
+                    <strong>temperature: </strong>{temp} Kelvin<br />
+                    <img
+                        src={icon}
+                        alt={`weather icon for ${country.capital}`}
+                        height="100px"
+                        width="120px" /><br />
+                    <strong>Wind: </strong>{wind}
+                </div>
+            </Segment>
+        );
     };
-    weatherInfo()
+    WeatherInfo()
 
     return (
         <Segment>
@@ -100,18 +99,7 @@ const ShowMatchDetails = ({ country }) => {
 
                 </Grid.Column>
                 <Grid.Column>
-                    <Segment>
-                        <div>
-                            <h2>Weather in {country.capital}</h2>
-                            <strong>temperature: </strong>{temp} Kelvin<br />
-                            <img
-                                src={icon}
-                                alt={`weather icon for ${country.capital}`}
-                                height="100px"
-                                width="120px" /><br />
-                            <strong>Wind: </strong>{wind}
-                            </div>
-                    </Segment>
+                    <WeatherInfo />
                 </Grid.Column>
 
             </Grid.Row>
