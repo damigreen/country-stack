@@ -49,17 +49,15 @@ const ShowMatchDetails = ({ country }) => {
     // makes a request to the openweather API for a particular city weather Information
     const WeatherInfo = () => {
         useEffect(() => {
-            axios
-                .get(`http://api.openweathermap.org/data/2.5/weather?q=${country.capital}&APPID=57931c248a6c40409a3da993a10b5c0c`)
-                .then((response) => {
-                    const weatherData = response.data;
-                    setTemp(weatherData.main.temp);
-                    setIcon(`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`);
-                    setWind(`${weatherData.wind.speed.toString()}  m/s  ${weatherData.wind.deg.toString()}  degrees`);
-                })
-                .catch((err) => {
-                    console.log('ERROR', err.response);
-                });
+            const fetchData = async () => {
+                const response = await axios
+                    .get(`http://api.openweathermap.org/data/2.5/weather?q=${country.capital}&APPID=57931c248a6c40409a3da993a10b5c0c`)
+                        const weatherData = response.data;
+                        setTemp(weatherData.main.temp);
+                        setIcon(`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`);
+                        setWind(`${weatherData.wind.speed.toString()}  m/s  ${weatherData.wind.deg.toString()}  degrees`);
+            }
+            fetchData();
         }, [])
         
 
