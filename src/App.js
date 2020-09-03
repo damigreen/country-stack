@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Find from './components/Find';
+import {
+    Container,
+    Header,
+    
+} from 'semantic-ui-react'
 
 function App() {
     const [countries, setCountries] = useState([]);
@@ -18,17 +23,15 @@ function App() {
     });
     useEffect(hook, []);
 
-    // const defaultCountry = countries.find(country => country.name === 'Nigeria');
-
 
     return (
-        <div>
-            <h2>Countries</h2>
+        <Container>
+            <Header style={{textAlign: 'center'}} as="h1">Country Stack</Header>
             <Find
                 countries={countries}
                 countryName={countryName}
                 setCountryName={setCountryName} />
-        </div>
+        </Container>
     );
 }
 
